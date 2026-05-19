@@ -1,0 +1,7 @@
+SELECT distinct 
+t_transaction_history_scheduler.transaction_amount,
+t_transaction_history_scheduler.dst_account_type,
+t_transaction_history_scheduler.dst_bank_code,
+t_transaction_history_scheduler.payee_code
+--master_biller_product.autodebet_allowed 
+FROM t_transaction_history_scheduler
