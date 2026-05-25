@@ -1,11 +1,9 @@
 SELECT distinct 
---t_transaction_history_scheduler.transaction_amount,
---t_transaction_history_scheduler.dst_account_type,
---t_transaction_history_scheduler.dst_bank_code,
 t_transaction_history_scheduler.payee_code,
 master_biller_product.autodebet_allowed 
 FROM t_transaction_history_scheduler
 left JOIN
 (select distinct payee_code,autodebet_allowed 
 from master_biller_product)master_biller_product
-on t_transaction_history_scheduler.payee_code =master_biller_product.payee_code 
+on t_transaction_history_scheduler.payee_code =master_biller_product.payee_code
+where t_transaction_history_scheduler.payee_code is not NULL
